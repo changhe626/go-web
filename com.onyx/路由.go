@@ -9,6 +9,12 @@ type MyMux struct {
 
 }
 
+/**
+type Handler interface {
+ServeHTTP(ResponseWriter, *Request) //  路由实现器
+}
+ */
+
 //这里是实现接口
 func(p *MyMux) ServeHTTP(w http.ResponseWriter,r *http.Request){
 	if r.URL.Path == "/" {
@@ -51,6 +57,7 @@ DefaultServeMux
 9 在这个例子中，下面就进入到DefaultServerMux.ServeHttp
 10 根据request选择handler，并且进入到这个handler的ServeHTTP
 mux.handler(r).ServeHTTP(w, r)
+
 11 选择handler：
 A 判断是否有路由能满足这个request（循环遍历ServerMux的muxEntry）
 B 如果有路由满足，调用这个路由handler的ServeHttp
