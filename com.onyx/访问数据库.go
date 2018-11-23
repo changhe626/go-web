@@ -37,7 +37,7 @@ func main() {
 
 	// 更新数据
 	stmt, err = db.Prepare("update diag_info set diag_name=? where diag_id=?")
-	res, err = stmt.Exec("zhaojun222",1)
+	res, err = stmt.Exec("zhaojun哈哈哈",1)
 	affect, err :=res.RowsAffected()
 	fmt.Println(affect)
 
@@ -62,6 +62,4 @@ func main() {
 	fmt.Println(affect)
 	db.Close()
 
-
-	
 }
